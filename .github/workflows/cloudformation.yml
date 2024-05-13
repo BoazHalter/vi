@@ -1,0 +1,11 @@
+name: Cloudformation
+on:
+  workflow_dispatch:
+  
+jobs:
+  deploy-helm-application:
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
