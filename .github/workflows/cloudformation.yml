@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   
 jobs:
-  deploy-helm-application:
+  cloudformation-create-stack:
     timeout-minutes: 10
     runs-on: ubuntu-latest
     steps:
