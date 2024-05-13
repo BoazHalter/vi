@@ -5,7 +5,7 @@
   },
   {
       "ParameterKey": "Environment",
-      "ParameterValue": "Test"    
+      "ParameterValue": "vi-cloudformation-templates"    
   },
   {
       "ParameterKey": "VpcBlock",
@@ -33,7 +33,7 @@
   },
   {
     "ParameterKey": "EksNodeInstanceType",
-    "ParameterValue": "t3.medium"
+    "ParameterValue": "t2.nano"
   },
   {
     "ParameterKey": "EksClusterMinSize",
