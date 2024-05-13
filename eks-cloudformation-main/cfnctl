@@ -30,7 +30,7 @@ elif [ "$1" == "create" ] || [ "$1" == "update" ]
 then
 
     BUCKET_URL="https://$BUCKET_NAME.s3.$REGION.amazonaws.com" # Construct the S3 bucket URL from BUCKET_NAME and REGION
-
+    echo "$BUCKET_URL"
     aws cloudformation $1-stack \
         --stack-name $STACK_NAME \
          --template-url "$BUCKET_URL/main.yaml" \
