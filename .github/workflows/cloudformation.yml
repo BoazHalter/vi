@@ -11,10 +11,7 @@ jobs:
       uses: actions/checkout@v4
     - name: Run aws-cli
       run: |
-        #env | grep AWS_
-        #aws cloudformation create-stack --stack-name vi-s3-stack --template-body file://eks-cloudformation-main/templates/s3Bucket.yaml
-        #grep -r "profile" eks-cloudformation-main/
-        bash eks-cloudformation-main/cfnctl upload       
+        bash eks-cloudformation-main/cfnctl create        
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
