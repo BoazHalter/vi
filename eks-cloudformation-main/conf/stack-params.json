@@ -1,7 +1,7 @@
 [
   {
     "ParameterKey": "CfnBucketUrl",
-    "ParameterValue": "https://sample-cfn-bucket.s3.us-east-1.amazonaws.com"
+    "ParameterValue": ""
   },
   {
       "ParameterKey": "Environment",
