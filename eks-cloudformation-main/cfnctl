@@ -11,7 +11,7 @@ if [ $# -eq 0 ]; then
 fi
 ls
 # Read the params:
-CONF_FILE="./conf/cfnctl.conf"
+CONF_FILE="./eks-cloudformation-main/conf/cfnctl.conf"
 
 source $CONF_FILE
 if [ "$1" == "upload" ]
