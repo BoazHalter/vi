@@ -9,7 +9,7 @@ provider "aws" {
 # with managed node groups
 data "aws_availability_zones" "available" {
   filter {
-    name   = "opt-in-status"
+    name   = "vi-eks-opt-in-status"
     values = ["opt-in-not-required"]
   }
 }
@@ -74,9 +74,9 @@ module "eks" {
 
   eks_managed_node_groups = {
     one = {
-      name = "node-group-1"
+      name = "vi-eks-node-group-1"
 
-      instance_types = ["t2.nano"]
+      instance_types = ["t2.micro"]
 
       min_size     = 1
       max_size     = 3
@@ -84,9 +84,9 @@ module "eks" {
     }
 
     two = {
-      name = "node-group-2"
+      name = "vi-eks-node-group-2"
 
-      instance_types = ["t2.nano"]
+      instance_types = ["t2.micro"]
 
       min_size     = 1
       max_size     = 2
