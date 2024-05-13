@@ -11,6 +11,7 @@ jobs:
       uses: actions/checkout@v4
     - name: Run aws-cli
       run: |
+         cd learn-terraform-provision-eks-cluster-main
          terraform init      
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
