@@ -9,7 +9,7 @@ provider "aws" {
 # with managed node groups
 data "aws_availability_zones" "available" {
   filter {
-    name   = "vi-eks-opt-in-status"
+    name   = "opt-in-status"
     values = ["opt-in-not-required"]
   }
 }
