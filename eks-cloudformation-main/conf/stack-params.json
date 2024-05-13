@@ -1,7 +1,7 @@
 [
   {
     "ParameterKey": "CfnBucketUrl",
-    "ParameterValue": ""
+    "ParameterValue": "https://vi-cloudformation-templates.s3.eu-north-1.amazonaws.com"
   },
   {
       "ParameterKey": "Environment",
