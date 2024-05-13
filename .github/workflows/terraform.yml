@@ -1,4 +1,4 @@
-name: Terraform
+name: Terraform create-eks
 on:
   workflow_dispatch:
   
@@ -12,7 +12,6 @@ jobs:
     - name: Run aws-cli
       run: |
          cd learn-terraform-provision-eks-cluster-main
-         #terraform destroy -input=false
          terraform init -input=false
          terraform plan -out=tfplan -input=false 
          terraform apply -input=false tfplan
