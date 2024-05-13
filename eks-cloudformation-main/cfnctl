@@ -21,10 +21,10 @@ then
     if [ $# -gt 1 ]; then
         list=$(echo $@ | cut -d " " -f 2-) # removes the first argument ("upload")
         for file in $list; do
-            aws s3 cp $TEMPLATE_DIR/$file s3://$BUCKET_NAME/$file --profile $AWS_PROFILE
+            aws s3 cp $TEMPLATE_DIR/$file s3://$BUCKET_NAME/$file #--profile $AWS_PROFILE
         done
     else
-         aws s3 cp --recursive $TEMPLATE_DIR/ s3://$BUCKET_NAME/ --profile $AWS_PROFILE
+         aws s3 cp --recursive $TEMPLATE_DIR/ s3://$BUCKET_NAME/ #--profile $AWS_PROFILE
     fi
 
 elif [ "$1" == "create" ] || [ "$1" == "update" ]
@@ -39,7 +39,7 @@ then
         --region $REGION \
         --parameters file://$STACK_PARAMS_FILE \
         --tags file://$STACK_TAGS_FILE \
-        --profile $AWS_PROFILE
+        #--profile $AWS_PROFILE
 
 # Delete command is not added to "cfnctl" because it is too dangerous :|
 
