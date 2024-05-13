@@ -13,7 +13,7 @@ jobs:
       run: |
         env | grep AWS_
         #aws cloudformation create-stack --stack-name vi-s3-stack --template-body file://eks-cloudformation-main/templates/s3Bucket.yaml
-        grep -r "--profile" eks-cloudformation-main/
+        grep -r "profile" eks-cloudformation-main/
         bash eks-cloudformation-main/cfnctl upload       
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
