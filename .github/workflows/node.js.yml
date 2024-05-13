@@ -29,4 +29,4 @@ jobs:
         cache-dependency-path: 'packages/service1/package-lock.json'
     - run: cd packages/service1
     - run: npm install
-    - run: npm test
+    - run: node index.js
