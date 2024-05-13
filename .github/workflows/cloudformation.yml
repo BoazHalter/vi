@@ -11,7 +11,7 @@ jobs:
       uses: actions/checkout@v4
     - name: Run aws-cli
       run: |
-        aws cloudformation create-stack --stack-name myteststack --template-body eks-cloudformation-main/templates/s3Bucket.yaml
+        aws cloudformation create-stack --stack-name myteststack --template-body file://eks-cloudformation-main/templates/s3Bucket.yaml
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
