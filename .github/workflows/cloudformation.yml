@@ -12,11 +12,11 @@ jobs:
     - name: Run aws-cli
       run: | 
         #aws cloudformation create-stack --stack-name vi-s3-stack --template-body file://eks-cloudformation-main/templates/s3Bucket.yaml
-        aws configure --profile '"boazhalter@gmail.com"'
+        #aws configure --profile '"boazhalter@gmail.com"'
         aws configure list
         bash eks-cloudformation-main/cfnctl upload       
       env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        #AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        #AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_DEFAULT_REGION: 'eu-north-1'
         AWS_DEFAULT_PROFILE: 'boazhalter@gmail.com'
