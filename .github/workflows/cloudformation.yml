@@ -10,7 +10,8 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
     - name: Run aws-cli
-      run: | 
+      run: |
+        env | grep AWS_
         #aws cloudformation create-stack --stack-name vi-s3-stack --template-body file://eks-cloudformation-main/templates/s3Bucket.yaml
         #aws configure --profile '"boazhalter@gmail.com"'
         aws configure list
