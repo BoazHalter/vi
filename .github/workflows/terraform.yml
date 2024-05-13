@@ -12,8 +12,9 @@ jobs:
     - name: Run aws-cli
       run: |
          cd learn-terraform-provision-eks-cluster-main
-         terraform init
-         terraform apply
+         terraform init -input=false
+         terraform plan -out=tfplan -input=false 
+         terraform apply -input=false tfplan
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
