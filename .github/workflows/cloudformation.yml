@@ -12,7 +12,7 @@ jobs:
     - name: Run aws-cli
       run: | 
         #aws cloudformation create-stack --stack-name vi-s3-stack --template-body file://eks-cloudformation-main/templates/s3Bucket.yaml
-        ./eks-cloudformation-main/cfnctl upload       
+        bash eks-cloudformation-main/cfnctl upload       
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
