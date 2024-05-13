@@ -34,12 +34,13 @@ then
 
     aws cloudformation $1-stack \
         --stack-name $STACK_NAME \
-        --template-url "$BUCKET_URL/main.yaml" \
+        --template-body "file://templates/main.yaml" \
         --capabilities CAPABILITY_NAMED_IAM \
         --region $REGION \
         --parameters file://$STACK_PARAMS_FILE \
         --tags file://$STACK_TAGS_FILE \
-        #--profile $AWS_PROFILE
+        
+#--profile $AWS_PROFILE
 
 # Delete command is not added to "cfnctl" because it is too dangerous :|
 
