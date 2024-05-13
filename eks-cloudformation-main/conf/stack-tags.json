@@ -1,10 +1,10 @@
 [
     {
       "Key": "ProjectName",
-      "Value": "eks-cloudformation-sample-project"
+      "Value": "vi-cloudformation-templates"
     },
     {
         "Key": "AdminContact",
-        "Value": "admin@myteam.com"   
+        "Value": "boazhalter@gmail.com"   
     }
   ]
