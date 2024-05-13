@@ -9,12 +9,11 @@ print_usage() {
 if [ $# -eq 0 ]; then 
     print_usage
 fi
-
+ls
 # Read the params:
 CONF_FILE="./conf/cfnctl.conf"
 
 source $CONF_FILE
-env |grep AWS_
 if [ "$1" == "upload" ]
 then
     echo "Uploading templates to the S3 bucket"
