@@ -39,7 +39,7 @@ then
         --region $REGION \
         --parameters file://$STACK_PARAMS_FILE \
         --tags file://$STACK_TAGS_FILE 
-        #--profile $AWS_PROFILE
+        --profile $AWS_PROFILE
 
 # Delete command is not added to "cfnctl" because it is too dangerous :|
 
