@@ -29,6 +29,6 @@ jobs:
         cache-dependency-path: 'packages/service1/package-lock.json'
     - run: |
         cd packages/service1
-        pwd
+        export MONGODB_URL="<mongodb connection url>"
         npm install
         node index.js
