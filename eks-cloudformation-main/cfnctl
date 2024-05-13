@@ -33,7 +33,7 @@ then
     echo "$BUCKET_URL"
     aws cloudformation $1-stack \
         --stack-name $STACK_NAME \
-         --template-url "$BUCKET_URL/main.yaml" \
+         --template-body file://eks-cloudformation-main/templates/main.yaml \
         --capabilities CAPABILITY_NAMED_IAM \
         --region $REGION \
         --parameters file://$STACK_PARAMS_FILE \
