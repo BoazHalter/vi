@@ -12,6 +12,8 @@ const client = new MongoClient(url, { useNewUrlParser: true, useUnifiedTopology:
 
 app.use(cors());
 app.use(bodyParser.json());
+app.get("/readyz", (req, res) => res.status(200).json({ status: "ok" }));
+app.get("/livez", (req, res) => res.status(200).json({ status: "ok" }));
 
 async function connectToDatabase() {
     await client.connect();
