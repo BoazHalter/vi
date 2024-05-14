@@ -9,7 +9,7 @@ env:
 
 image:
   repository: 851725552187.dkr.ecr.eu-central-1.amazonaws.com/packages/service1
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: latest
 
