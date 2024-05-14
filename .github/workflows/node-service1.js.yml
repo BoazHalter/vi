@@ -30,4 +30,4 @@ jobs:
     - run: |
         cd packages/service1
         docker build . -t 851725552187.dkr.ecr.eu-central-1.amazonaws.com/packages/service1:latest
-        docker push packages/service1:latest 851725552187.dkr.ecr.eu-central-1.amazonaws.com/packages/service1:latest
+        docker push 851725552187.dkr.ecr.eu-central-1.amazonaws.com/packages/service1:latest
