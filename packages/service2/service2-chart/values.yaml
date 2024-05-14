@@ -74,11 +74,11 @@ resources: {}
 
 livenessProbe:
   httpGet:
-    path: /
+    path: /order
     port: http
 readinessProbe:
   httpGet:
-    path: /
+    path: /order
     port: http
 
 autoscaling:
