@@ -8,7 +8,8 @@ const port = process.env.PORT || 3000;
 const url = process.env.MONGODB_URL;
 const dbName = "DevOpsAssignment";
 
-
+app.get("/readyz", (req, res) => res.status(200).json({ status: "ok" }));
+app.get("/livez", (req, res) => res.status(200).json({ status: "ok" }));
 app.use(cors());
 app.use(bodyParser.json());
 
