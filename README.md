@@ -41,6 +41,7 @@ Your deployment must meet the following criteria:
 - Created Dockerfile foreach [service1](https://github.com/BoazHalter/vi/blob/master/packages/service1/Dockerfile) and [service2](https://github.com/BoazHalter/vi/blob/master/packages/service2/Dockerfile)
 - Create all resources using IaC tools
 - Use [Amazon Elastic Container Registry](https://us-east-1.console.aws.amazon.com/ecr/get-started) to push the images to a private repository
+- Create Amazon Elastic Container Registry Using [This](https://github.com/terraform-aws-modules/terraform-aws-ecr/tree/master/examples/complete) repo with complete documentation
 - Create a [Kubernetes](https://us-east-1.console.aws.amazon.com/eks/home) cluster
 - Use helm to deploy the service(s)
 - Create a MongoDB instance and make it reachable for the deployed service, update the `MONGODB_URL` environment variable to match the mongodb connection url 
