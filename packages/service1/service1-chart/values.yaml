@@ -5,7 +5,7 @@
 replicaCount: 1
 
 env:
-  mdbUrl: mongodb://mongodb.default.svc.cluster.local  
+  mdbUrl: mongodb://root:@mongodb.default.svc.cluster.local  
 
 image:
   repository: 851725552187.dkr.ecr.eu-central-1.amazonaws.com/packages/service1
