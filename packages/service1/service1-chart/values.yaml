@@ -6,9 +6,7 @@ replicaCount: 1
 mdb:
   username: root
   password: password
-env:
-  mdbUrl: mongodb://root:@mongodb.default.svc.cluster.local  
-
+  
 image:
   repository: 851725552187.dkr.ecr.eu-central-1.amazonaws.com/packages/service1
   pullPolicy: Always
