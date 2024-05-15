@@ -3,9 +3,8 @@
 # Declare variables to be passed into your templates.
 
 replicaCount: 1
-mdb:
-  username: root
-  password: password
+username: root
+password: password
 image:
   repository: 851725552187.dkr.ecr.eu-central-1.amazonaws.com/packages/service2
   pullPolicy: Always
