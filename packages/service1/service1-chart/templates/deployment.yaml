@@ -35,11 +35,6 @@ spec:
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
-          command:
-             - "bin/bash"
-             - "-c"
-             - "echo $USERNAME"
-             - "echo $PASSWORD"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
             - name: "USERNAME"
@@ -47,7 +42,7 @@ spec:
             - name: "PASSWORD"
               value: {{ .Values.password }}
             - name: MONGODB_URL 
-              value: mongodb://$USERNAME:$PASSWORD@mongodb.default.svc.cluster.local
+              value: mongodb://$(USERNAME):$(PASSWORD)@mongodb.default.svc.cluster.local
           ports:
             - name: http
               containerPort: {{ .Values.service.port }}
