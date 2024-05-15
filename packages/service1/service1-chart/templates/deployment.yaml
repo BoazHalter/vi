@@ -38,9 +38,9 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
             - name: "USERNAME"
-              value: {{Values.username}}
+              value: {{ .Values.username }}
             - name: "PASSWORD"
-              value: {{Values.password}}
+              value: {{ .Values.password }}
             - name: MONGODB_URL 
               value: mongodb://$USERNAME:$PASSWORD@mongodb.default.svc.cluster.local
           ports:
