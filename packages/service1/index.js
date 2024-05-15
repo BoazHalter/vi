@@ -8,7 +8,9 @@ const port = process.env.PORT || 3000;
 const url = process.env.MONGODB_URL;
 const dbName = "DevOpsAssignment";
 
-
+app.get("/readyz", (req, res) => res.status(200).json({ status: "ok" }));
+app.get("/livez", (req, res) => res.status(200).json({ status: "ok" }));
+ 
 app.use(cors());
 app.use(bodyParser.json());
 
@@ -28,10 +30,7 @@ async function connectToDatabase() {
 }
 
 async function main() {
-    app.get("/readyz", (req, res) => res.status(200).json({ status: "ok" }));
-    app.get("/livez", (req, res) => res.status(200).json({ status: "ok" }));
-    const {counterCollection, orderCollection} = await connectToDatabase();
-
+ const {counterCollection, orderCollection} = await connectToDatabase();
     app.delete("/orders/:id", async (req, res) => {
         await orderCollection.deleteOne({_id: Number(req.params.id)});
         res.send(`Order number ${req.params.id} deleted successfully.`);
