@@ -45,15 +45,15 @@ service:
   port: 3001
 
 ingress:
-  enabled: false
+  enabled: true
   className: ""
   annotations: {}
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: chart-example.local
+    - host: aca2d8f27289d4501845b285c14a237a-1297844769.eu-central-1.elb.amazonaws.com
       paths:
-        - path: /
+        - path: /orders
           pathType: ImplementationSpecific
   tls: []
   #  - secretName: chart-example-tls
