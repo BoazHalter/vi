@@ -11,23 +11,34 @@ Below is the information given by the development team.
 
 ### Global Environment Requirement
 - Start a MongoDB instance, it should be reachable by the prototype code and the development team
+- Started MongoDB instance using this [chart](https://github.com/BoazHalter/vi/tree/master/mongodb) with complete documentation from https://artifacthub.io/packages/helm/bitnami/mongodb
 
 ### Backend Requirements
 - NodeJS LTS version
-- Set environment variable `MONGODB_URL="<mongodb connection url>"`, where `<mongodb connection url>` must match the [official mongodb node driver uri](https://docs.mongodb.com/drivers/node/current/fundamentals/connection/#connection-uri)
+- Set environment variable `MONGODB_URL="<mongodb connection url>"`, where `<mongodb connection url>` must match the [official mongodb node driver uri]        
+  (https://docs.mongodb.com/drivers/node/current/fundamentals/connection/#connection-uri)
 - Navigate to package(s) directory `cd packages/<package>`
 - Build using npm `npm install`
 - Start using node `node index.js`
+- Created a GitHub action based for each service1 and service2 [CI procedure](https://github.com/BoazHalter/vi/actions/workflows/node-service1.js.yml) to store the artifacts in ECR
 
 ### Cloud Infrastructure Requirement
 Your deployment must meet the following criteria:
 - A working deployment which reachable through internet
-- IaC (Infrastructure as Code) deployment for the created AWS resources. You may use Cloudformation, Terraform or AWS CDK for that purpose 
+  ```
+     curl -u root:$MONGODB_ROOT_PASSWORD -XPOST http://a8757eb4642ab45548b64a13c632eea4-1896208677.eu-central-1.elb.amazonaws.com/orders -d '{}'
+     Order number 4 created successfully.
+  ```
+- IaC (Infrastructure as Code) deployment for the created AWS resources. You may use Cloudformation, Terraform or AWS CDK for that purpose
+- Created eks cluster using [Terraform](https://github.com/BoazHalter/vi/tree/master/learn-terraform-provision-eks-cluster-main) with complete documentation from       
+  https://github.com/hashicorp/learn-terraform-provision-eks-cluster
 - Documentation for the deployment plan and the resources created
 
 ### Guidebook on completing the assignment
 - Your implementation should be commited to your own public git repository, including any IaC, documentation, etc (fork this repository)
+- [Forked from](https://github.com/vi-technologies/devops-assignment) into [The current repo](https://github.com/BoazHalter/vi) 
 - Create dockerfiles to match the deployment requirements
+- Created Dockerfile foreach [service1](https://github.com/BoazHalter/vi/blob/master/packages/service1/Dockerfile) and [service2](https://github.com/BoazHalter/vi/blob/master/packages/service2/Dockerfile)
 - Create all resources using IaC tools
 - Use [Amazon Elastic Container Registry](https://us-east-1.console.aws.amazon.com/ecr/get-started) to push the images to a private repository
 - Create a [Kubernetes](https://us-east-1.console.aws.amazon.com/eks/home) cluster
