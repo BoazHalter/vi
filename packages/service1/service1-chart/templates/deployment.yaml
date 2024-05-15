@@ -37,8 +37,18 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
+            - name: "USERNAME"
+              valueFrom:
+                secretKeyRef:
+                  key:  username
+                  name: {{ .Release.Name }}-auth
+            - name: "PASSWORD"
+              valueFrom:
+              secretKeyRef:
+                key:  password
+                name: {{ .Release.Name }}-auth
             - name: MONGODB_URL 
-              value: {{ .Values.env.mdbUrl }}
+              value: mongodb://$USERNAME:PASSWORD@mongodb.default.svc.cluster.local
           ports:
             - name: http
               containerPort: {{ .Values.service.port }}
