@@ -11,6 +11,22 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: "latest"
 
+ingress:
+  enabled: true
+  className: ""
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  hosts:
+    - host: a8757eb4642ab45548b64a13c632eea4-1896208677.eu-central-1.elb.amazonaws.com
+      paths:
+        - path: /orders
+          pathType: ImplementationSpecific
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
@@ -44,21 +60,6 @@ service:
   type: ClusterIP
   port: 3001
 
-ingress:
-  enabled: true
-  className: ""
-  annotations: {}
-    # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
-  hosts:
-    - host: aca2d8f27289d4501845b285c14a237a-1297844769.eu-central-1.elb.amazonaws.com
-      paths:
-        - path: /orders
-          pathType: ImplementationSpecific
-  tls: []
-  #  - secretName: chart-example-tls
-  #    hosts:
-  #      - chart-example.local
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
