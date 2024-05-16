@@ -26,8 +26,16 @@ Below is the information given by the development team.
 Your deployment must meet the following criteria:
 - A working deployment which reachable through internet
   ```
-     curl -u root:$MONGODB_ROOT_PASSWORD -XPOST http://a8757eb4642ab45548b64a13c632eea4-1896208677.eu-central-1.elb.amazonaws.com/orders -d '{}'
-     Order number 4 created successfully.
+    curl -XPOST http://a8757eb4642ab45548b64a13c632eea4-1896208677.eu-central-1.elb.amazonaws.com/service1 -d '{}'
+    Order number 19 created successfully.
+
+    curl -XDELETE http://a8757eb4642ab45548b64a13c632eea4-1896208677.eu-central-1.elb.amazonaws.com/service1/4
+    Order number 4 deleted successfully.
+
+    curl -XGET http://a8757eb4642ab45548b64a13c632eea4-1896208677.eu-central-1.elb.amazonaws.com/service2
+    [{"_id":1},{"_id":3},{"_id":6},{"_id":7},{"_id":8},{"_id":9},{"_id":10},{"_id":11},{"_id":12},{"_id":13},{"_id":14},{"_id":15},{"_id":16},{"_id":17},{"_id":18},      
+    {"_id":19}]
+
   ```
 - IaC (Infrastructure as Code) deployment for the created AWS resources. You may use Cloudformation, Terraform or AWS CDK for that purpose
 - Created eks cluster using [Terraform](https://github.com/BoazHalter/vi/tree/master/learn-terraform-provision-eks-cluster-main) with complete documentation from       
