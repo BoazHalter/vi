@@ -49,7 +49,7 @@ Your deployment must meet the following criteria:
 - Created Dockerfile foreach [service1](https://github.com/BoazHalter/vi/blob/master/packages/service1/Dockerfile) and [service2](https://github.com/BoazHalter/vi/blob/master/packages/service2/Dockerfile)
 - Create all resources using IaC tools
 - Use [Amazon Elastic Container Registry](https://us-east-1.console.aws.amazon.com/ecr/get-started) to push the images to a private repository
-- Created Amazon Elastic Container Registry Using [This](https://github.com/terraform-aws-modules/terraform-aws-ecr/tree/master/examples/complete) repo with complete documentation
+- Created [Amazon Elastic Container Registry](https://github.com/BoazHalter/vi/tree/master/terrafrom-ecr) Using [This](https://github.com/terraform-aws-modules/terraform-aws-ecr/tree/master/examples/complete) repo with complete documentation
 - Create a [Kubernetes](https://us-east-1.console.aws.amazon.com/eks/home) cluster
 - Use helm to deploy the service(s)
 - Create a MongoDB instance and make it reachable for the deployed service, update the `MONGODB_URL` environment variable to match the mongodb connection url 
@@ -64,7 +64,35 @@ Your deployment must meet the following criteria:
   - Consider multi-tenant and multi-environment deployment 
   - Documentation for disaster recovery plan
   - Any other improvement that you think is relevant for this project
+### Guidebook
 
+```
+  1.forked the original repo
+  2.Uploaded the eks terrafrom directory to the current repo
+  3.made some modification to main.tf changed name of cluster ,vpc,region etc...
+  4.inside the eks-terraform directory ran the following :
+    - terraform init
+    - terraform plan -out tfplan
+    - terraform apply "tfplan"
+  5.cluster created with all best-practices asg , private subnet, public subnet , multi az's etc...
+  6.updated kube-config.
+  - aws eks update-kubeconfig  --name vi-eks-5mHLrn1W 
+  7.installing nginx-ingress-controller chart
+  8.downloaded the chart values and modified it to deploy as daemonset ruther than deployment.
+  9.deployed the chart:
+    - helm upgrade -f values.yaml -i ingress-nginx ingress-nginx/ingress-nginx \
+      --namespace kube-system \
+      --set controller.service.type=LoadBalancer
+  10.ingress-nginx installed and Load balancer created.
+  11.installed mongodb
+  12.installed service1 and service2 using helm chrat i created
+```
+
+
+
+
+
+    
 ### How will the assignment be evaluated
 When evaluating the assignment, we will consider the following:
 - The deployment plan and the resources are created and working as expected. We will trigger the API and expect a valid response
