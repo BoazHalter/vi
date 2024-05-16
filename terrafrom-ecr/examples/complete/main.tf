@@ -104,3 +104,4 @@ module "ecr_registry" {
       ]
     }
   ]
+}
