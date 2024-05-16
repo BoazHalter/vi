@@ -70,6 +70,10 @@ Your deployment must meet the following criteria:
   1.forked the original repo
   2.created github actions to build the services1/2.
   3.created ecr using the terraform-ecr:
+    - terraform init
+    - terraform plan -out tfplan
+    - terraform apply "tfplan"
+
   4.Uploaded the eks terrafrom directory to the current repo
   5.made some modification to main.tf changed name of cluster ,vpc,region etc...
   6.inside the eks-terraform directory ran the following :
