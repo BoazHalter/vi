@@ -63,7 +63,10 @@ Your deployment must meet the following criteria:
   - Secure the deployments according to best practices (rate limits, relevant security groups, etc)
   - Consider multi-tenant and multi-environment deployment 
   - Documentation for disaster recovery plan
-  - Any other improvement that you think is relevant for this project
+  - Any other improvement that you think is relevant for this project.
+  - For monitoring logs I suggest elk stack
+  - For CPU and memory monitoring I suggest Prometheus and grafana
+  - I have added a liveness and readiness capabilities to the services
 ### Guidebook
 
 ```
