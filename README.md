@@ -70,7 +70,7 @@ Your deployment must meet the following criteria:
   1.forked the original repo
   2.created github actions to build the services1/2.
   3.created ecr using the terraform-ecr:
-    - terraform init
+    - terraform init 
     - terraform plan -out tfplan
     - terraform apply "tfplan"
 
@@ -80,12 +80,17 @@ Your deployment must meet the following criteria:
     - terraform init
     - terraform plan -out tfplan
     - terraform apply "tfplan"
+
   7.cluster created with all best-practices asg , private subnet, public subnet , multi az's etc...
-  8.updated kube-config.
+  8.installed ssm on all eks nodes to enable development team reachable connection to mongodb.  
+    - kubectl apply -f ssm-daemonset.yaml
+
+  9.updated kube-config.
     - aws eks update-kubeconfig  --name vi-eks-5mHLrn1W 
-  9.installing nginx-ingress-controller chart
-  10.downloaded the chart values and modified it to deploy as daemonset ruther than deployment.
-  11.deployed the ingress-nginx chart:
+
+  10.installing nginx-ingress-controller chart
+  11.downloaded the chart values and modified it to deploy as daemonset ruther than deployment.
+  12.deployed the ingress-nginx chart:
     - helm upgrade -f values.yaml -i ingress-nginx ingress-nginx/ingress-nginx \
       --namespace kube-system \
       --set controller.service.type=LoadBalancer
@@ -94,18 +99,22 @@ Your deployment must meet the following criteria:
       --namespace kube-system \
       --set controller.watchIngressWithoutClass=true
     
-  12.ingress-nginx installed and Load balancer created.
-  13.installed mongodb
+  13.ingress-nginx installed and Load balancer created.
+  14.installed mongodb
      -  helm install mongodb ./mongodb
-  14.mongodb started. 
-     - export MONGODB_ROOT_PASSWORD=$(kubectl get secret --namespace default mongodb -o jsonpath="{.data.mongodb-root-password}" | base64 -d)
-  15.installed service1 and service2 using helm chrat i created
+
+  15.mongodb started. 
+     - export MONGODB_ROOT_PASSWORD=$(kubectl get secret --namespace default mongodb -o jsonpath="{.data.mongodb-root-      
+        password}" | base64 -d)
+
+  16.installed service1 and service2 using helm chrat i created
      helm install service1 --set password=$MONGODB_ROOT_PASSWORD  \
      --set username=root    ./packages/service1/service1-chart/
      helm install service2 --set password=$MONGODB_ROOT_PASSWORD  \
      --set username=root    ./packages/service2/service2-chart/
-  16.services deployed
-  17.testing:
+
+  17.services deployed
+  18.testing:
      - curl -XPOST http://a8757eb4642ab45548b64a13c632eea4-1896208677.eu-central-1.elb.amazonaws.com/service1 -d '{}'
        Order number 19 created successfully.
 
