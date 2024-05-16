@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 locals {
-  region = "us-east-1"
+  region = "eu-central-1"
   name   = "ecr-ex-${replace(basename(path.cwd), "_", "-")}"
 
   account_id = data.aws_caller_identity.current.account_id
