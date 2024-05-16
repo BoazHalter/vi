@@ -58,7 +58,7 @@ ingress:
       paths:
         - path: /service1
           pathType: ImplementationSpecific
-        - path: /service1/*
+        - path: /service1(/|$)(.*)
           pathType: ImplementationSpecific
   tls: []
   #  - secretName: chart-example-tls
