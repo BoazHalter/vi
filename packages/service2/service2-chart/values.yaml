@@ -14,13 +14,14 @@ image:
 ingress:
   enabled: true
   className: ""
-  annotations: {}
+  annotations: 
+    nginx.ingress.kubernetes.io/rewrite-target: /orders
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
     - host:
       paths:
-        - path: /service2/orders
+        - path: /service2
           pathType: ImplementationSpecific
   tls: []
   #  - secretName: chart-example-tls
