@@ -35,5 +35,5 @@ jobs:
         cache-dependency-path: 'packages/service2/package-lock.json'
     - run: |
         cd packages/service2
-        docker build . -t 851725552187.dkr.ecr.eu-central-1.amazonaws.com/packages/service2:latest
-        docker push 851725552187.dkr.ecr.eu-central-1.amazonaws.com/packages/service2:latest
+        docker build . -t 851725552187.dkr.ecr.eu-central-1.amazonaws.com/packages/service2:${{ github.run_id }}
+        docker push 851725552187.dkr.ecr.eu-central-1.amazonaws.com/packages/service2:${{ github.run_id }}
