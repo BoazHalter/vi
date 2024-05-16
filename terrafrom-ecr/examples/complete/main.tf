@@ -4,7 +4,7 @@ provider "aws" {
 
 locals {
   region = "eu-central-1"
-  name   = "packages/service3"
+  name   = "packages/service2"
 
   account_id = data.aws_caller_identity.current.account_id
 
